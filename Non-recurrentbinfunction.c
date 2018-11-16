@@ -1,7 +1,8 @@
 #include <stdio.h>
 
 int bin(int, int);
-int binarray[6][4];
+int bin2(int, int);
+//int binarray[6][4];
 int main()
 {
     int n, k;
@@ -34,4 +35,40 @@ int bin(int n, int k)
     //return bin(n - 1, k) + bin(n - 1, k - 1);
     binarray[n][k] = (binarray[n - 1][k] + binarray[n - 1][k - 1]);
     return 0;
+}
+
+int bin2(int n, int k)
+{
+    int **binarray;
+
+    int i, j;
+    int result;
+    binarray = malloc(2 * sizeof(int));
+    for (i = 0; i < 2; ++i)
+    {
+        binarray[i] = malloc((k + 1) * sizeof(int));
+    }
+
+    for (i = 0; i < n + 1; ++i)
+    {
+        for (j = 0; j < k + 1; ++j)
+        {
+            if (j == 0)
+            {
+                binarray[i % 2][j] = 1;
+            }
+            else if (i == J)
+            {
+                binarray[i % 2][j] = 1;
+            }
+            else if (j > i)
+            {
+                binarray[i % 2][j] = 0;
+            }
+            else
+            {
+                binarray[i % 2][j] = binarray[(i - 1) % 2][j] + binarray[(i - 1)]
+            }
+        }
+    }
 }
