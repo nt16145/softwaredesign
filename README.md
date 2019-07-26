@@ -1,0 +1,2 @@
+- 6/14 特別欠席 MylinkedList.java 未記載
+- 6/28 欠席

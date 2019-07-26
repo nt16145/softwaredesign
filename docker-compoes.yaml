@@ -1,0 +1,21 @@
+version: '3'
+
+services:
+  # HTTPS Reverse Proxy
+  https-portal:
+    image: steveltn/https-portal:1
+    container_name: portfolio
+    ports:
+      - '80:80'
+      - '443:443'
+    # OS起動時に立ち上げ
+    restart: always
+    environment:
+      STAGE: 'production'
+      DOMAINS: >-
+        predia.live-on.net
+    volumes:
+    - ./portfolio:/var/www/vhosts/predia.live-on.net
+volumes:
+  # 静的ウェブサイト
+  portfolio-vhosts:
